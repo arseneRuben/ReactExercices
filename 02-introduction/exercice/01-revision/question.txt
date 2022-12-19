@@ -1,0 +1,77 @@
+Exercice - Révision
+
+Objectifs:
+    - Mise à jour des connaissances JavaScript
+
+Consignes:
+    - Crée le fichier revision.txt
+    - Copier le questionnaire ci-dessous et répondre aux questions avec des phrases courtes (ne pas copier des énoncés du web)
+
+-----------------
+
+1) let et const remplace quelle commande ?
+
+Réponse:
+
+
+
+2) Décrire la différence entre les commandes let et const ?
+
+Réponse:
+
+
+
+3) Pour chaque structure de données ci-dessous, choisir entre Map, Set, Array ou Object ce qui est le plus adapté pour simplifier la manipulation des données.
+
+Note: Ajoutez une courte explication pour chacun de vos choix
+
+
+
+['a', 'b', 'c', 'c']
+
+Réponse:
+
+
+
+[
+
+    { email: "martinv@gmail.com", nom: "Martin Vachon", age: 45 },
+
+    { email: "sonia@hotmail.com", nom: "Sonia Trudeau", age: 23 },
+
+    { email: "martinec@gmail.com", nom: "Martine Coté", age: 25 }
+
+]
+
+Réponse:
+
+
+
+{
+
+    count: 32
+
+    itemNumber: 2574
+
+    price: 12.25
+
+    details: {
+
+        id: "ARTVV",
+
+        ref: 129,
+
+        type: "RT-34"
+
+    }
+
+}
+
+Réponse:
+
+
+
+4) Quelle est la différence entre une méthode statique et une méthode standard ?
+
+Réponse:
+

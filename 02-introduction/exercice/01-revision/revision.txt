@@ -1,0 +1,82 @@
+Exercice - Révision
+
+Objectifs:
+    - Mise à jour des connaissances JavaScript
+
+Consignes:
+    - Crée le fichier revision.txt
+    - Copier le questionnaire ci-dessous et répondre aux questions avec des phrases courtes (ne pas copier des énoncés du web)
+
+-----------------
+
+1) let et const remplace quelle commande ?
+
+Réponse:
+        Ils remplacent la commande var.
+
+
+2) Décrire la différence entre les commandes let et const ?
+
+Réponse:
+    let declare une vairable qui pourra être réaffectée.
+    const declare aussi une variable, mais de facon finale.
+
+
+
+3) Pour chaque structure de données ci-dessous, choisir entre Map, Set, Array ou Object ce qui est le plus adapté pour simplifier la manipulation des données.
+
+Note: Ajoutez une courte explication pour chacun de vos choix
+
+
+
+['a', 'b', 'c', 'c']
+
+Réponse:
+    Un Set ou un Array conviennent car les valeurs sont simples. Si on aimerai rechercher ou trier les valeurs, l'Array sera preferable.
+
+
+[
+
+    { email: "martinv@gmail.com", nom: "Martin Vachon", age: 45 },
+
+    { email: "sonia@hotmail.com", nom: "Sonia Trudeau", age: 23 },
+
+    { email: "martinec@gmail.com", nom: "Martine Coté", age: 25 }
+
+]
+
+Réponse:
+    Les items ayant la meme structure, on peut stocker cette structure de données dans un Array ou un Set, selon qu'on aimerai y effectuer des 
+    trie , des recherches ou pas. D'autres part, au cas ou on aimerai acceder aux items en fonction de l'email(sous-entendu que l'email est unique), on prefera un Map.
+
+
+{
+
+    count: 32
+
+    itemNumber: 2574
+
+    price: 12.25
+
+    details: {
+
+        id: "ARTVV",
+
+        ref: 129,
+
+        type: "RT-34"
+
+    }
+
+}
+
+Réponse:
+  Object est adapte car les valeurs des chapms sont de differents type, mais pourront etre accessible via leur nom.
+
+
+4) Quelle est la différence entre une méthode statique et une méthode standard ?
+
+Réponse:
+
+    Pour utiliser une methode standard d'une classe , on doit instancier un objet de la classe, alors que pour utiliser une methode statique,
+    on peut ne pas le faire. 
