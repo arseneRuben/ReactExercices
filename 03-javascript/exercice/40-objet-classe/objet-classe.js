@@ -16,7 +16,7 @@ class ObjetClasse {
     }
 
     executePrivateFunction () {
-        return 'Méthode publique' +  ' - ' + this.#privateFunction()
+        return 'Méthode publique executePrivateFunction' +  ' - ' + this.#privateFunction()
     }
 }
 
