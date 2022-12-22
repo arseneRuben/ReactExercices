@@ -1,0 +1,21 @@
+{
+    "name": "node-file-system",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "sync": "node ./src/file-sync.js",
+        "async": "node ./src/file-async.js",
+        "all": "npm run sync && npm run async"
+    },
+    "author": "Martin Vachon",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^7.32.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.25.3",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.2.0"
+    }
+}
