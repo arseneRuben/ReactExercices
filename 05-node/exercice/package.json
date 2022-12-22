@@ -1,11 +1,12 @@
 {
-  "name": "node-fs",
-  "version": "1.0.0",
-  "description": "module reutilisable pour simuler une bd",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "arsene",
-  "license": "ISC"
+    "name": "node-fs",
+    "version": "1.0.0",
+    "description": "module reutilisable pour simuler une bd",
+    "main": "index.js",
+    "scripts": {
+        "test": " npm run maintest && exit 1",
+        "maintest": "node test.js"
+    },
+    "author": "arsene",
+    "license": "ISC"
 }
