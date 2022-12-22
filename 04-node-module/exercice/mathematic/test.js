@@ -1,6 +1,6 @@
 'use strict'
 
-const mathematic = require ('./src/mathematic')
+const mathematic = require ('.')
 
 
 const a=8, b=4
