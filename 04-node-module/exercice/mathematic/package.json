@@ -1,0 +1,25 @@
+{
+  "name": "mathematic",
+  "version": "1.0.0",
+  "description": "module pour operations arithmetiques",
+  "main": "index.js",
+  "scripts": {
+    "test": " npm run maintest && exit 1",
+    "maintest": "node test.js"
+  },
+  "keywords": [
+    "add",
+    "div",
+    "mul",
+    "sub"
+  ],
+  "author": "arsene",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^8.30.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1"
+  }
+}

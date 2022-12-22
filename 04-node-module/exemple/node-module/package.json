@@ -1,0 +1,17 @@
+{
+  "name": "node-module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "premier-script": "echo \"Execution de mon premier script\"",
+    "add": "npm run premier-script && node add.js"
+  },
+  "keywords": [
+    "my",
+    "module"
+  ],
+  "author": "AFP",
+  "license": "ISC"
+}
