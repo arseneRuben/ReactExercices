@@ -4,8 +4,7 @@
     "description": "module reutilisable pour simuler une bd",
     "main": "index.js",
     "scripts": {
-        "test": " npm run maintest && exit 1",
-        "maintest": "node test.js"
+        "test": "node test.js"
     },
     "author": "arsene",
     "license": "ISC"
