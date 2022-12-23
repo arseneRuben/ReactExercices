@@ -1,7 +1,7 @@
 
 'use strict'
 
-const sgbd = require ('.')
+const myModule = require ('.')
 
 const TEST_FILE_NAME = 'test.json'
 const TEST_DATA = [
@@ -11,11 +11,11 @@ const TEST_DATA = [
 ]
 
 
-sgbd.saveDatas(TEST_FILE_NAME, TEST_DATA)
-console.log(sgbd.readDatas(TEST_FILE_NAME))
-console.log(sgbd.readDatas(TEST_FILE_NAME))
-sgbd.addData(TEST_FILE_NAME, { id: 103, userName: 'Alain', age: 109 })
-console.log(sgbd.readDatas(TEST_FILE_NAME))
+myModule.saveDatas(TEST_FILE_NAME, TEST_DATA)
+console.log(myModule.readDatas(TEST_FILE_NAME))
+console.log(myModule.readDatas(TEST_FILE_NAME))
+myModule.addData(TEST_FILE_NAME, { id: 103, userName: 'Alain', age: 109 })
+console.log(myModule.readDatas(TEST_FILE_NAME))
 
 
 try {
