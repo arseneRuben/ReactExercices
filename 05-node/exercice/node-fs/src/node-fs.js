@@ -24,6 +24,17 @@ function saveDatas (fileName, datas){
     fs.writeFileSync(fileName, JSON.stringify(datas), option)
 }
 
+function indexOf(datas, data){
+    let i=0
+    datas.forEach(item => {
+
+        if(item.id===data.id){
+            i++
+        }
+    })
+    return i
+}
+
 function addData (fileName, data){
     const datas = readDatas(fileName)
     const checked = datas.filter(item => {
@@ -36,8 +47,6 @@ function addData (fileName, data){
     } else {
         throw Error("Element already exists")
     }
-
-
 }
 
 function updateData (fileName, data){
@@ -48,18 +57,19 @@ function updateData (fileName, data){
 
     if(checked.length===0){
         throw Error("Element not found")
+    } else {
+        datas.splice(indexOf(datas, data)+1, 1, data)
     }
-    datas.push(data)
+
     saveDatas(fileName,datas)
 }
 
-const TEST_DATA = [
-    { id: 100, userName: 'mvachon', age: 12 },
-    { id: 101, userName: 'jcote', age: 66 },
-    { id: 102, userName: 'pmartineau', age: 99 }
-]
-//saveDatas("text.json", TEST_DATA)
-console.log(readDatas("text.json"))
-addData("text.json", { id: 103, userName: 'vincent', age: 99 })
-console.log(readDatas("text.json"))
 
+module.exports = {
+    readData,
+    readDatas,
+    saveDatas,
+    addData,
+    updateData
+
+}
