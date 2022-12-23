@@ -1,7 +1,7 @@
 
 'use strict'
 
-const myModule = require ('.')
+const nodeFs = require ('.')
 
 const TEST_FILE_NAME = 'test.json'
 const TEST_DATA = [
@@ -11,17 +11,20 @@ const TEST_DATA = [
 ]
 
 
-myModule.saveDatas(TEST_FILE_NAME, TEST_DATA)
-console.log(myModule.readDatas(TEST_FILE_NAME))
-console.log(myModule.readDatas(TEST_FILE_NAME))
-myModule.addData(TEST_FILE_NAME, { id: 103, userName: 'Alain', age: 109 })
-console.log(myModule.readDatas(TEST_FILE_NAME))
+nodeFs.saveDatas(TEST_FILE_NAME, TEST_DATA)
+console.log(nodeFs.readDatas(TEST_FILE_NAME))
+
 
 
 try {
-  //  console.log(sgbd.readDatas(TEST_FILE_NAME))
+    //nodeFs.addData(TEST_FILE_NAME, { id: 103, userName: 'Alain', age: 109 })
+   // console.log(nodeFs.readData(TEST_FILE_NAME, 103))
 
-    sgbd.updateData(TEST_FILE_NAME, { id: 105, userName: 'vincent', age: 79 })
+
+    nodeFs.updateData(TEST_FILE_NAME, { id: 101, userName: 'Neymar Jr', age: 29 })
+    console.log(nodeFs.readDatas(TEST_FILE_NAME))
+   // nodeFs.updateData(TEST_FILE_NAME, { id: 102, userName: 'Frank-Lin', age: 35 })
+   // console.log(nodeFs.readDatas(TEST_FILE_NAME))
 } catch (error) {
-    console.error("erreur")
+    console.error(error)
 }

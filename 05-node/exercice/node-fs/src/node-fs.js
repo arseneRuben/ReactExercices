@@ -13,11 +13,11 @@ function readDatas(fileName) {
 
 function  readData(fileName, id){
     const datas = readDatas(fileName)
-    const result = datas.filter(data => {
+    const results = datas.filter(data => {
         return data.id === id
     })
-    if(result.length===0) throw Error("Element not found")
-    return result
+    if(results.length===0) throw Error("Element not found")
+    return results[0]
 }
 
 function saveDatas (fileName, datas){
@@ -27,21 +27,22 @@ function saveDatas (fileName, datas){
 function indexOf(datas, data){
     let i=0
     datas.forEach(item => {
-
-        if(item.id===data.id){
-            i++
+        if(item.id!==data.id){
+            i = i+1
         }
+
     })
     return i
+
 }
 
 function addData (fileName, data){
     const datas = readDatas(fileName)
-    const checked = datas.filter(item => {
+    const results = datas.filter(item => {
         return data.id === item.id
     })
 
-    if(checked.length===0){
+    if(results.length===0){
          datas.push(data)
          saveDatas(fileName,datas)
     } else {
@@ -51,14 +52,15 @@ function addData (fileName, data){
 
 function updateData (fileName, data){
     const datas = readDatas(fileName)
-    const checked = datas.filter(item => {
+    const results = datas.filter(item => {
         return data.id === item.id
     })
 
-    if(checked.length===0){
+    if(results.length===0){
         throw Error("Element not found")
     } else {
-        datas.splice(indexOf(datas, data)+1, 1, data)
+        datas[indexOf(datas, data)]= data
+
     }
 
     saveDatas(fileName,datas)
