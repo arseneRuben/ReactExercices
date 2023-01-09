@@ -30,7 +30,6 @@ function indexOf(datas, data){
         if(item.id!==data.id){
             i = i+1
         }
-
     })
     return i
 
@@ -60,9 +59,7 @@ function updateData (fileName, data){
         throw Error("Element not found")
     } else {
         datas[indexOf(datas, data)]= data
-
     }
-
     saveDatas(fileName,datas)
 }
 
