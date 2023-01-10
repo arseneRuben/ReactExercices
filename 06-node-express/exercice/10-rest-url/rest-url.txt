@@ -6,17 +6,18 @@ POST /users
 PUT /users
 DELETE /users/:id
 
-GET /profiles
-GET /profiles/:id
-GET /user_profiles/:user_id    /* liste des profils d'un utilisateur */
-POST /profiles
-PUT /profiles
-DELETE /profiles/:id
+GET /users/:id/profiles    /* liste des profils d'un utilisateur */
+GET /users/:id/profiles/:id    /* profil specific d'un utilisateur */
+POST /users/:id/profiles
+PUT /users/:id/profiles
+DELETE /users/:id/profiles
+DELETE /users/:id/profiles/:id
+
 
 GET /products
 GET /products/:id
-POST /add_products/:id     /* Ajout du produit dans le panier d'achat */
-POST /del_products/:id     /* Suppression du produit dans le panier d'achat */
+POST /products/
+POST /products/:id/cart    /* Suppression du produit dans le panier d'achat */
 POST /products
 PUT /products
 DELETE /products/:id
