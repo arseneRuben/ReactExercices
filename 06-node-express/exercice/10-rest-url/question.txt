@@ -1,0 +1,26 @@
+Exercice - REST URL
+
+Un API REST doit supporter les opérations CRUD (create, read, update, delete) pour les entités suivantes
+
+- User (représente un usager)
+
+- Profile (Représente un profil usagé et chaque usager peut avoir plusieurs profils)
+
+- Product (représente un produit et un usager peut ajouter plusieurs produits dans son panier d'achats)
+
+- Cart (représente un panier d'achats et chaque usager peut avoir un seul panier)
+
+
+Consignes
+
+Créer le fichier 06-node-express/exercice/rest-url/rest-url.txt
+Énoncer la liste des URL avec les méthodes HTTP nécessaires
+
+
+Exemple de réponse:
+
+GET /users
+GET /users/:id
+POST /users
+PUT /users (l'identifiant unique est contenu dans le payload)
+DELETE /users/:id

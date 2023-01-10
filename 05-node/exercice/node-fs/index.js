@@ -1,6 +1,12 @@
 'use strict'
 
-const { addData, readData, readDatas, saveDatas, updateData } = require('./src/node-fs')
+const {
+    addData,
+    readData,
+    readDatas,
+    saveDatas,
+    updateData
+} = require('./src/node-fs')
 
 module.exports = {
     readData,
@@ -8,6 +14,4 @@ module.exports = {
     saveDatas,
     addData,
     updateData
-
 }
-

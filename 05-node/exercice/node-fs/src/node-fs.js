@@ -1,74 +1,64 @@
+'use strict'
+
 const fs = require('fs')
 
-const ENCODING = 'UTF-8'
-const option = {
-    encoding: ENCODING,
-    flag: 'w'
+function saveDatas (fileName, datas) {
+    const dataString = JSON.stringify(datas, null, 2)
+    fs.writeFileSync(fileName, dataString, {})
 }
 
-
-function readDatas(fileName) {
-    return JSON.parse(fs.readFileSync(fileName, ENCODING))
+function readDatas (fileName) {
+    const datas = fs.readFileSync(fileName)
+    return JSON.parse(datas)
 }
 
-function  readData(fileName, id){
+function readData (fileName, id) {
     const datas = readDatas(fileName)
-    const results = datas.filter(data => {
-        return data.id === id
-    })
-    if(results.length===0) throw Error("Element not found")
-    return results[0]
+
+    const index = findIndex(datas, id)
+
+    return datas[index]
 }
 
-function saveDatas (fileName, datas){
-    fs.writeFileSync(fileName, JSON.stringify(datas), option)
-}
+function addData (fileName, data) {
+    const datas = readDatas(fileName)
 
-function indexOf(datas, data){
-    let i=0
-    datas.forEach(item => {
-        if(item.id!==data.id){
-            i = i+1
+    datas.forEach(element => {
+        if (element.id === data.id) {
+            throw new Error('Element already exists')
         }
     })
-    return i
 
+    datas.push(data)
+    saveDatas(fileName, datas)
 }
 
-function addData (fileName, data){
+function updateData (fileName, data) {
     const datas = readDatas(fileName)
-    const results = datas.filter(item => {
-        return data.id === item.id
+
+    const index = findIndex(datas, data.id)
+
+    datas[index] = data
+
+    saveDatas(fileName, datas)
+}
+
+function findIndex (datas, id) {
+    const index = datas.findIndex(function (element) {
+        return element.id === parseInt(id)
     })
 
-    if(results.length===0){
-         datas.push(data)
-         saveDatas(fileName,datas)
-    } else {
-        throw Error("Element already exists")
+    if (index === -1) {
+        throw new Error('Element not found')
     }
+
+    return index
 }
-
-function updateData (fileName, data){
-    const datas = readDatas(fileName)
-    const results = datas.filter(item => {
-        return data.id === item.id
-    })
-
-    if(results.length===0){
-        throw Error("Element not found")
-    } else {
-        datas[indexOf(datas, data)]= data
-    }
-    saveDatas(fileName,datas)
-}
-
 
 module.exports = {
-    readData,
     readDatas,
+    readData,
     saveDatas,
     addData,
     updateData
-
 }

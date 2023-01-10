@@ -1,0 +1,27 @@
+
+
+GET /users
+GET /users/:id
+POST /users
+PUT /users
+DELETE /users/:id
+
+GET /profiles
+GET /profiles/:id
+GET /user_profiles/:user_id    /* liste des profils d'un utilisateur */
+POST /profiles
+PUT /profiles
+DELETE /profiles/:id
+
+GET /products
+GET /products/:id
+POST /add_products/:id     /* Ajout du produit dans le panier d'achat */
+POST /del_products/:id     /* Suppression du produit dans le panier d'achat */
+POST /products
+PUT /products
+DELETE /products/:id
+
+GET /carts                 /* avoir le panier de l'utilisateur courant */
+POST /carts
+PUT /carts              /* vider le panier */
+DELETE /carts/:id

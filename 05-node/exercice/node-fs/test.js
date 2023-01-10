@@ -10,10 +10,10 @@ const TEST_DATA = [
 ]
 
 nodeFs.saveDatas(TEST_FILE_NAME, TEST_DATA)
-//console.log(nodeFs.readDatas(TEST_FILE_NAME))
+// console.log(nodeFs.readDatas(TEST_FILE_NAME))
 // test  readDatas
 assert.deepStrictEqual(TEST_DATA, nodeFs.readDatas(TEST_FILE_NAME))
-// test  readDatas
+// test  readData
 assert.deepStrictEqual(
     { id: 100, userName: 'mvachon', age: 12 },
     nodeFs.readData(TEST_FILE_NAME, 100)
@@ -33,15 +33,14 @@ assert.deepStrictEqual(
 )
 */
 // test  adData
-nodeFs.addData(TEST_FILE_NAME, {
+
+nodeFs.addData(TEST_FILE_NAME)
+const ABOUBAKAR = {
     id: 104,
     userName: 'Aboubakar',
     age: 30
-})
-assert.deepStrictEqual(
-    { id: 104, userName: 'Aboubakar', age: 30 },
-    nodeFs.readData(TEST_FILE_NAME, 104)
-)
+}
+assert.deepStrictEqual(ABOUBAKAR, nodeFs.readData(TEST_FILE_NAME, 104))
 /*
 try {
     //nodeFs.addData(TEST_FILE_NAME, { id: 103, userName: 'Alain', age: 109 })
