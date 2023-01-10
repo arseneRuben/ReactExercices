@@ -16,13 +16,22 @@ const {
     saveDatas,
     updateData
 } = require('../../../05-node/exercice/node-fs')
+const TEST_FILE_NAME = 'test.json'
+
+const TEST_DATA = [
+    { id: 100, userName: 'mvachon', age: 12 },
+    { id: 101, userName: 'jcote', age: 66 },
+    { id: 102, userName: 'pmartineau', age: 99 }
+]
+saveDatas(TEST_FILE_NAME, TEST_DATA)
 
 const router = express.Router()
 
-router.get('/id', readData)
-router.get('/', readDatas)
-router.post('/add', addData)
-router.put('/', saveDatas)
-router.put('/id', updateData)
+app.get('/datas/:id', function (request, response) {
+    response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_HTML })
+    response.end(readData(TEST_FILE_NAME, request.params.id))
+})
 
-console.log('Exécution du serveur')
+app.listen(PORT, function () {
+    console.log('Server listening on: http://localhost:%s', PORT)
+})
