@@ -38,17 +38,31 @@ app.get('/datas', function (request, response) {
 })
 
 app.post('/datas', function (request, response) {
-    const ABOUBAKAR = {
+    /* const ABOUBAKAR = {
         id: parseInt(request.body.id),
         userName: request.body.userName,
         age: parseInt(request.body.age)
     }
-    console.log(ABOUBAKAR)
+    console.log(ABOUBAKAR) */
+
     response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_JSON })
-    addData(TEST_FILE_NAME, ABOUBAKAR)
+    addData(TEST_FILE_NAME, request.body)
 
     response.end(
-        JSON.stringify(readData(TEST_FILE_NAME, parseInt(ABOUBAKAR.id)))
+        JSON.stringify(readData(TEST_FILE_NAME, parseInt(request.body.id)))
+    )
+})
+app.put('/datas', function (request, response) {
+    /* const ABOUBAKAR = {
+        id: parseInt(request.body.id),
+        userName: request.body.userName,
+        age: parseInt(request.body.age)
+    } */
+    response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_JSON })
+    updateData(TEST_FILE_NAME, request.body)
+
+    response.end(
+        JSON.stringify(readData(TEST_FILE_NAME, parseInt(request.body.id)))
     )
 })
 
