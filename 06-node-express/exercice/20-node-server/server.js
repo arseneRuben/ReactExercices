@@ -16,8 +16,8 @@ const {
     saveDatas,
     updateData
 } = require('../../../05-node/exercice/node-fs')
+// Creation of database file
 const TEST_FILE_NAME = 'test.json'
-
 const TEST_DATA = [
     { id: 100, userName: 'mvachon', age: 12 },
     { id: 101, userName: 'jcote', age: 66 },
@@ -25,11 +25,27 @@ const TEST_DATA = [
 ]
 saveDatas(TEST_FILE_NAME, TEST_DATA)
 
-const router = express.Router()
-
 app.get('/datas/:id', function (request, response) {
-    response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_HTML })
-    response.end(readData(TEST_FILE_NAME, request.params.id))
+    response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_JSON })
+    response.end(
+        JSON.stringify(readData(TEST_FILE_NAME, parseInt(request.params.id)))
+    )
+})
+
+app.get('/datas', function (request, response) {
+    response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_JSON })
+    response.end(JSON.stringify(readDatas(TEST_FILE_NAME)))
+})
+
+app.post('/datas', function (request, response) {
+    const ABOUBAKAR = JSON.stringify(request.body, null, 4)
+    console.log(ABOUBAKAR)
+    response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_JSON })
+    addData(TEST_FILE_NAME, ABOUBAKAR)
+
+    response.end(
+        JSON.stringify(readData(TEST_FILE_NAME, parseInt(ABOUBAKAR.id)))
+    )
 })
 
 app.listen(PORT, function () {
