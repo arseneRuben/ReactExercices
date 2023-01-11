@@ -48,9 +48,7 @@ app.post('/datas', function (request, response) {
     response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_JSON })
     addData(TEST_FILE_NAME, request.body)
 
-    response.end(
-        JSON.stringify(readData(TEST_FILE_NAME, parseInt(request.body.id)))
-    )
+    response.end(JSON.stringify(readData(TEST_FILE_NAME, request.body.id)))
 })
 app.put('/datas', function (request, response) {
     /* const ABOUBAKAR = {
@@ -61,9 +59,7 @@ app.put('/datas', function (request, response) {
     response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_JSON })
     updateData(TEST_FILE_NAME, request.body)
 
-    response.end(
-        JSON.stringify(readData(TEST_FILE_NAME, parseInt(request.body.id)))
-    )
+    response.end(JSON.stringify(readData(TEST_FILE_NAME, request.body.id)))
 })
 
 app.listen(PORT, function () {
