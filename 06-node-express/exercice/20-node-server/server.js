@@ -38,7 +38,11 @@ app.get('/datas', function (request, response) {
 })
 
 app.post('/datas', function (request, response) {
-    const ABOUBAKAR = JSON.stringify(request.body, null, 4)
+    const ABOUBAKAR = {
+        id: parseInt(request.body.id),
+        userName: request.body.userName,
+        age: parseInt(request.body.age)
+    }
     console.log(ABOUBAKAR)
     response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_JSON })
     addData(TEST_FILE_NAME, ABOUBAKAR)

@@ -17,5 +17,5 @@ id=104&userName=Aboubakar&age=30
 ###
 
 PUT http://localhost:8080/datas HTTP/1.1
-
+id=104&userName=Aboubakar&age=33
 ###
