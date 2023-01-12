@@ -3,9 +3,11 @@
     "version": "1.0.0",
     "description": "module reutilisable pour simuler une bd",
     "main": "index.js",
+
     "scripts": {
-        "test": "node test.js"
-    },
+        "build": "webpack --mode development"
+    }
+                        ,
     "author": "arsene",
     "license": "ISC",
     "keywords": [
