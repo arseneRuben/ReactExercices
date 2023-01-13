@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import RadioTitleComponent from '../../../02-js-react-form-title/src/component/radio-title-component'
 import InputComponent from '../component/input-component'
 import SelectComponent from '../component/select-component'
 const OPTIONS = [
@@ -18,32 +17,6 @@ const OPTIONS = [
     {
         label: 'Algérie',
         value: '4'
-    }
-]
-const TITLES = [
-    {
-        label: 'Duc',
-        number: 0
-    },
-    {
-        label: 'Duchesse',
-        number: 1
-    },
-    {
-        label: 'Marquis',
-        number: 2
-    },
-    {
-        label: 'Marquise',
-        number: 3
-    },
-    {
-        label: 'Comte',
-        number: 4
-    },
-    {
-        label: 'Comtesse',
-        number: 5
     }
 ]
 class FormContainer extends Component {
@@ -81,12 +54,6 @@ class FormContainer extends Component {
                         id='country_id'
                         value='Algérie'
                         options={OPTIONS}
-                    />
-                    <RadioTitleComponent
-                        legend='Titre:'
-                        id='title_id'
-                        name='title'
-                        titles={TITLES}
                     />
                 </form>
             </div>
