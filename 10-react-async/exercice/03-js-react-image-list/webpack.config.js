@@ -14,6 +14,12 @@ module.exports = {
         }
     },
     devtool: 'inline-source-map',
+    devServer: {
+        open: true,
+        static: {
+            directory: path.join(__dirname)
+        }
+    },
     module: {
         rules: [
             {
@@ -38,4 +44,5 @@ module.exports = {
             filename: './index.html'
         })
     ]
+
 }
