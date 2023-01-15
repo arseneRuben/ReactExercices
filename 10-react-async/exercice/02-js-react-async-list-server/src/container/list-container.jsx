@@ -24,22 +24,10 @@ class ListContainer extends Component {
         let output
         if (!emptyList) {
             output = this.state.users.map((user, index) => (
-                <ListItemComponent
-                    key={index}
-                    id={index}
-                    text={user.userName}
-                    cible={this}
-                />
+                <ListItemComponent key={index} text={user.userName} />
             ))
         } else {
-            output = (
-                <ListItemComponent
-                    key='-1'
-                    id={-1}
-                    text='Aucun usager trouvé ...'
-                    cible={this}
-                />
-            )
+            output = <ListItemComponent text='Aucun usager trouvé ...' />
         }
         return (
             <div>
