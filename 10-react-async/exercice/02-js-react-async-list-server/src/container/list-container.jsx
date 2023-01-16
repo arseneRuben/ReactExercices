@@ -12,7 +12,7 @@ class ListContainer extends Component {
     }
 
     componentDidMount () {
-        fetch('user-list.json', { method: 'GET' })
+        fetch('http://localhost:8080/users', { method: 'GET' })
             .then(response => response.json())
             .then(response => {
                 this.setState({ users: response })

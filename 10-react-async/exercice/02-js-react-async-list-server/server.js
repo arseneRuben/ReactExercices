@@ -1,5 +1,11 @@
 'use strict'
+const fs = require('fs')
 
+const FILE_NAME = 'user-list.json'
+function readDatas (fileName) {
+    const datas = fs.readFileSync(fileName)
+    return JSON.parse(datas)
+}
 const express = require('express')
 
 const app = express()
@@ -13,10 +19,11 @@ app.use(express.json())
 const PORT = 8080
 const HTTP_OK = 200
 const CONTENT_TYPE_HTML = 'text/html'
+const CONTENT_TYPE_JSON = 'application/json'
 
 app.get('/users', function (request, response) {
-    response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_HTML })
-    response.end('<h1>User page</h1>')
+    response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_JSON })
+    response.end(JSON.stringify(readDatas(FILE_NAME)))
 })
 app.get('/', function (request, response) {
     response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_HTML })
