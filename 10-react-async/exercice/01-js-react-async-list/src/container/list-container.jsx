@@ -37,6 +37,7 @@ class ListContainer extends Component {
                     text={user.userName}
                 />
             ))
+            output += '<p>' + this.state.users.length + 'users</p>'
         } else {
             output = (
                 <ListItemComponent

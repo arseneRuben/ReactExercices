@@ -1,10 +1,5 @@
 import React from 'react'
 
-function onClickHandler (event) {
-    // console.log(this)
-    console.log(event)
-    // console.log(event)
-}
-const ListItemComponent = ({ text }) => <li onClick={onClickHandler}>{text}</li>
+const ListItemComponent = ({ index, text }) => <li id={index}>{text}</li>
 
 export default ListItemComponent
