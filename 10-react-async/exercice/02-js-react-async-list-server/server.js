@@ -25,10 +25,6 @@ app.get('/users', function (request, response) {
     response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_JSON })
     response.end(JSON.stringify(readDatas(FILE_NAME)))
 })
-app.get('/', function (request, response) {
-    response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_HTML })
-    response.end('<h1>Home page</h1>')
-})
 
 app.listen(PORT, function () {
     console.log('Server listening on: http://localhost:%s', PORT)
