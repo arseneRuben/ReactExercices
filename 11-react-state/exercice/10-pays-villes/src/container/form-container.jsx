@@ -8,30 +8,33 @@ class FormContainer extends Component {
         this.state = {
             countries: countries.default,
             country: '',
-            city: ''
+            city: '',
+            temp: ''
         }
         this.handleOnChange = this.handleOnChange.bind(this)
     }
 
     handleOnChange = e => {
+        const {
+            target: { value, name }
+        } = e
+
         this.setState({
-            country: e.target.value
+            [name]: value
         })
-        console.log(this.state)
+
+        if (e.target.id === 'city_id') {
+            fetch(
+                `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&APPID=52261c83c6e8a4c8e14e163120944701`
+            )
+                .then(response => response.json())
+                .then(data => this.setState({ temp: data.main.temp - 273.5 }))
+        }
     }
 
     render () {
-        console.log(
-            Object.values(this.state.countries)[
-                Object.keys(this.state.countries).indexOf(
-                    this.state.country
-                ) === -1
-                    ? 0
-                    : Object.keys(this.state.countries).indexOf(
-                          this.state.country
-                      )
-            ]
-        )
+        const selectedCountry =
+            this.state.country.length === 0 ? 'Afghanistan' : this.state.country
 
         return (
             <div>
@@ -50,9 +53,10 @@ class FormContainer extends Component {
                         id='city_id'
                         name='city'
                         value={this.state.city}
-                        options={[]}
+                        options={this.state.countries[selectedCountry]}
                         onChange={this.handleOnChange}
                     />
+                    <p>{this.state.temp}</p>
                 </form>
             </div>
         )
