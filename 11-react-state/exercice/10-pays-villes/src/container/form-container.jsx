@@ -5,20 +5,34 @@ import * as countries from '../../all-countries-and-cities-json-master/countries
 class FormContainer extends Component {
     constructor (props) {
         super(props)
-        this.state = { countries: countries.default }
+        this.state = {
+            countries: countries.default,
+            country: '',
+            city: ''
+        }
+        this.handleOnChange = this.handleOnChange.bind(this)
     }
 
     handleOnChange = e => {
-        const {
-            target: { value, name }
-        } = e
-
         this.setState({
-            [name]: value
+            country: e.target.value
         })
+        console.log(this.state)
     }
 
     render () {
+        console.log(
+            Object.values(this.state.countries)[
+                Object.keys(this.state.countries).indexOf(
+                    this.state.country
+                ) === -1
+                    ? 0
+                    : Object.keys(this.state.countries).indexOf(
+                          this.state.country
+                      )
+            ]
+        )
+
         return (
             <div>
                 <h1>Formulaire usager</h1>
@@ -27,8 +41,16 @@ class FormContainer extends Component {
                         text='Pays:'
                         id='country_id'
                         name='country'
-                        value='Algérie'
-                        options={this.state.countries}
+                        value={this.state.country}
+                        options={Object.keys(this.state.countries)}
+                        onChange={this.handleOnChange}
+                    />
+                    <SelectComponent
+                        text='Ville:'
+                        id='city_id'
+                        name='city'
+                        value={this.state.city}
+                        options={[]}
                         onChange={this.handleOnChange}
                     />
                 </form>
