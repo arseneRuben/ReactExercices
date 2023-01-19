@@ -6,18 +6,21 @@ const TextComponent = ({
     content,
     onChange,
     onClick,
-    editing,
     cols = '40',
     rows = '5',
     name
 }) => (
-    <div onClick={onClick}>
+    <>
         <label htmlFor={htmlFor1}>{label}:</label>
-        <span id={name}>
-            {editing ? (<textarea cols={cols} rows={rows} value={content} onChange={onChange} name={name} />) : (content)}
-        </span>
-
-    </div>
+        <textarea
+            cols={cols}
+            rows={rows}
+            value={content}
+            onChange={onChange}
+            onClick={onClick}
+            name={name}
+        />
+    </>
 )
 
 export default TextComponent

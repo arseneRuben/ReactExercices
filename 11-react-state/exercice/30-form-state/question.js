@@ -5,10 +5,10 @@
  *  - Gestion de l'état d'un formulaire.
  *
  * Consignes:
- *  - Créer la composante form-container en utilisant le code ci desous.
- *  - Ajouter le code manquant pour produire le résultat de la maquette.
- *  - Note: la partie État présente le contenu du state React du conteneur
- *
+ *  - Créer la composante form-container.
+ *  - Écrire une  méthode qui va mettre à jour le state pour tous les  champs du formulaire.
+ *  - Note: En utilisant le spread operator ... le state formValues est copié dans un nouvel objet
+ *      et le champ en édition remplace la valeur précédente en utilisant les braquettes: [name]: value
  */
 
 import React, { Component } from 'react'
@@ -24,7 +24,9 @@ class FormContainer extends Component {
 
     handleInputOnChange (event) {
         this.setState({
-            formValues: Object.assign(this.state.formValues, { [event.target.name]: event.target.value })
+            formValues: Object.assign(this.state.formValues, {
+                [event.target.name]: event.target.value
+            })
         })
     }
 
@@ -34,9 +36,7 @@ class FormContainer extends Component {
                 <h1>Formulaire</h1>
                 <form />
                 <h1>État</h1>
-                <pre>
-                    {JSON.stringify(this.state, null, 4)}
-                </pre>
+                <pre>{JSON.stringify(this.state, null, 4)}</pre>
             </div>
         )
     }

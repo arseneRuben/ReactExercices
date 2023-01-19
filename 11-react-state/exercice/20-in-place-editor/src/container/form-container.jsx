@@ -19,46 +19,38 @@ class FormContainer extends Component {
         }
         this.handleOnChange = this.handleOnChange.bind(this)
         this.handleOnClick = this.handleOnClick.bind(this)
+        // this.resetState = this.resetState.bind(this)
     }
 
     handleOnChange = e => {
+        console.log('je suis dans event')
         const {
             target: { value, name }
         } = e
-
+        console.log('test', value, name)
         this.setState({
             [name + 'Value']: value
         })
     }
 
     handleOnClick = e => {
-        const {
-            target: { name }
-        } = e
+        this.resetState()
 
         this.setState({
-            [name + EDIT_LABEL]: true
+            [e.target.id + EDIT_LABEL]: true
         })
+    }
 
-        Object.keys(this.state).forEach(key => {
-            if (key.includes(EDIT_LABEL) && !key.includes(name)) {
-                this.setState({
-                    [key]: false
-                })
-            }
+    resetState = () => {
+        this.setState({
+            userNameIsEditing: false,
+            emailIsEditing: false,
+            messageIsEditing: false
         })
     }
 
     handleOnSubmit = e => {
         e.preventDefault()
-
-        Object.keys(this.state).forEach(key => {
-            if (key.includes(EDIT_LABEL)) {
-                this.setState({
-                    [key]: false
-                })
-            }
-        })
     }
 
     render () {
@@ -74,6 +66,7 @@ class FormContainer extends Component {
                         value={this.state.userNameValue}
                         onChange={this.handleOnChange}
                         onClick={this.handleOnClick}
+                        editing={this.state.userNameIsEditing}
                     />
                     <InputComponent
                         text='Email:'
@@ -83,6 +76,7 @@ class FormContainer extends Component {
                         value={this.state.emailValue}
                         onChange={this.handleOnChange}
                         onClick={this.handleOnClick}
+                        editing={this.state.emailIsEditing}
                     />
                     <TextComponent
                         label='Message'
@@ -93,12 +87,13 @@ class FormContainer extends Component {
                         rows='5'
                         onChange={this.handleOnChange}
                         onClick={this.handleOnClick}
+                        editing={this.state.messageIsEditing}
                     />
                     <div>
                         <button>Submit</button>
                     </div>
                     <h1> State</h1>
-                    <p>{JSON.stringify(this.state, null, 4)}</p>
+                    <pre>{JSON.stringify(this.state, null, 4)}</pre>
                 </form>
             </div>
         )

@@ -1,16 +1,20 @@
 import React from 'react'
 
-const InputComponent = ({ text, type, id, name, value, onChange, onClick }) => (
-    <div>
+const InputComponent = ({
+    text,
+    type,
+    id,
+    name,
+    value,
+    onChange,
+    onClick,
+    editing
+}) => (
+    <div onClick={onClick}>
         <label htmlFor={id}>{text}</label>
-        <input
-            type={type}
-            id={id}
-            name={name}
-            value={value}
-            onChange={onChange}
-            onClick={onClick}
-        />
+        <span id={name}>
+            {editing ? (<input type={type} name={name} value={value} onChange={onChange} />) : (value)}
+        </span>
     </div>
 )
 
