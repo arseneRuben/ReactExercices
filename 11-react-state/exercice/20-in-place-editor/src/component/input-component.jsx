@@ -12,8 +12,8 @@ const InputComponent = ({
 }) => (
     <div onClick={onClick}>
         <label htmlFor={id}>{text}</label>
-        <span id={name}>
-            {editing ? (<input type={type} name={name} value={value} onChange={onChange} />) : (value)}
+        <span>
+            {editing ? (<input type={type} name={name} id={id} value={value} onChange={onChange} />) : (value)}
         </span>
     </div>
 )

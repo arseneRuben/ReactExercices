@@ -22,22 +22,17 @@ class FormContainer extends Component {
         // this.resetState = this.resetState.bind(this)
     }
 
-    handleOnChange = e => {
-        console.log('je suis dans event')
-        const {
-            target: { value, name }
-        } = e
-        console.log('test', value, name)
+    handleOnChange = (file) => e => {
         this.setState({
-            [name + 'Value']: value
+            [file + 'Value']: e.target.value
         })
     }
 
-    handleOnClick = e => {
+    handleOnClick = (file) => e => {
         this.resetState()
 
         this.setState({
-            [e.target.id + EDIT_LABEL]: true
+            [file + EDIT_LABEL]: true
         })
     }
 
@@ -51,6 +46,7 @@ class FormContainer extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
+        this.resetState()
     }
 
     render () {
@@ -64,8 +60,8 @@ class FormContainer extends Component {
                         id='name_id'
                         name='userName'
                         value={this.state.userNameValue}
-                        onChange={this.handleOnChange}
-                        onClick={this.handleOnClick}
+                        onChange={this.handleOnChange('userName')}
+                        onClick={this.handleOnClick('userName')}
                         editing={this.state.userNameIsEditing}
                     />
                     <InputComponent
@@ -74,8 +70,8 @@ class FormContainer extends Component {
                         id='email_id'
                         name='email'
                         value={this.state.emailValue}
-                        onChange={this.handleOnChange}
-                        onClick={this.handleOnClick}
+                        onChange={this.handleOnChange('email')}
+                        onClick={this.handleOnClick('email')}
                         editing={this.state.emailIsEditing}
                     />
                     <TextComponent
@@ -85,8 +81,8 @@ class FormContainer extends Component {
                         content={this.state.messageValue}
                         cols='20'
                         rows='5'
-                        onChange={this.handleOnChange}
-                        onClick={this.handleOnClick}
+                        onChange={this.handleOnChange('message')}
+                        onClick={this.handleOnClick('message')}
                         editing={this.state.messageIsEditing}
                     />
                     <div>

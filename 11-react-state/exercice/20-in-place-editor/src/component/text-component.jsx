@@ -11,9 +11,9 @@ const TextComponent = ({
     rows = '5',
     name
 }) => (
-    <div onClick={onClick}>
+    <div>
         <label htmlFor={htmlFor1}>{label}:</label>
-        <span id={name}>
+        <span onClick={onClick}>
             {editing ? (<textarea cols={cols} rows={rows} value={content} onChange={onChange} name={name} />) : (content)}
         </span>
 
