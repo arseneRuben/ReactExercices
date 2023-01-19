@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import InputComponent from '../component/input-component'
-// import TextComponent from '../component/text-component'
+import TextComponent from '../component/text-component'
 
 const EDIT_LABEL = 'IsEditing'
 
@@ -32,17 +32,18 @@ class FormContainer extends Component {
     }
 
     handleOnClick = e => {
-        console.log(e)
         const {
             target: { name }
         } = e
+
         this.setState({
             [name + EDIT_LABEL]: true
         })
+
         Object.keys(this.state).forEach(key => {
-            if (key.includes(EDIT_LABEL) && key !== name + 'IsEditing') {
+            if (key.includes(EDIT_LABEL) && !key.includes(name)) {
                 this.setState({
-                    [name + EDIT_LABEL]: false
+                    [key]: false
                 })
             }
         })
@@ -51,24 +52,13 @@ class FormContainer extends Component {
     handleOnSubmit = e => {
         e.preventDefault()
 
-        const {
-            userNameIsEditing,
-            userNameValue,
-            emailIsEditing,
-            emailValue,
-            messageIsEditing,
-            messageValue
-        } = this.state
-        const data = {
-            userNameIsEditing,
-            userNameValue,
-            emailIsEditing,
-            emailValue,
-            messageIsEditing,
-            messageValue
-        }
-
-        console.log('Data:', data)
+        Object.keys(this.state).forEach(key => {
+            if (key.includes(EDIT_LABEL)) {
+                this.setState({
+                    [key]: false
+                })
+            }
+        })
     }
 
     render () {
@@ -85,7 +75,7 @@ class FormContainer extends Component {
                         onChange={this.handleOnChange}
                         onClick={this.handleOnClick}
                     />
-                    {/* <InputComponent
+                    <InputComponent
                         text='Email:'
                         type='text'
                         id='email_id'
@@ -96,13 +86,17 @@ class FormContainer extends Component {
                     />
                     <TextComponent
                         label='Message'
+                        name='message'
                         htmsFor1='msg_id'
                         content={this.state.messageValue}
                         cols='20'
                         rows='5'
                         onChange={this.handleOnChange}
                         onClick={this.handleOnClick}
-        /> */}
+                    />
+                    <div>
+                        <button>Submit</button>
+                    </div>
                     <h1> State</h1>
                     <p>{JSON.stringify(this.state, null, 4)}</p>
                 </form>
