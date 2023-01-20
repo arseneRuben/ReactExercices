@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-// import InputComponent from '../component/input-component'
+import FormComponent from '../component/form-component'
+import InputComponent from '../component/input-component'
+import ListComponent from '../component/list-component'
 const USERS = [
     {
         id: 1,
@@ -51,7 +53,7 @@ class FormContainer extends Component {
             users: []
         }
 
-        this.handleChange = this.handleChange.bind(this)
+        this.handleCheck = this.handleCheck.bind(this)
     }
 
     componentDidMount () {
@@ -62,30 +64,24 @@ class FormContainer extends Component {
         e.preventDefault()
     }
 
-    handleChange (event) {
+    handleCheck (e) {
         this.setState({
-            formValues: {
-                ...this.state.formValues,
-                [event.target.name]: event.target.value
-            }
+            showForm: e.target.checked
         })
     }
 
     render () {
         return (
-            <div>
-                <h1>Formulaire</h1>
-                <form id='form-test' onSubmit={this.handleOnSubmit}>
+            <>
 
-                    {/* <InputComponent text='Nom d&#39;usager ' name='userName' value={this.state.formValues.userName} onChange={this.handleChange} />
-                    <InputComponent text='Pr&eacute;nom ' name='fistName' value={this.state.formValues.fistName} onChange={this.handleChange} />
-                    <InputComponent text='Nom ' name='lastName' value={this.state.formValues.lastName} onChange={this.handleChange} />
-        */}
-                </form>
+                <InputComponent type='checkbox' text='Formulaire?' name='showForm' onChange={this.handleCheck} />
 
-                <h1>État</h1>
-                <pre>{JSON.stringify(this.state, null, 4)}</pre>
-            </div>
+                <div>
+
+                    {this.state.showForm ? <FormComponent userName='userName' firstName='firstName' lastName='lastName' /> : <ListComponent items={this.state.users} />}
+
+                </div>
+            </>
         )
     }
 }

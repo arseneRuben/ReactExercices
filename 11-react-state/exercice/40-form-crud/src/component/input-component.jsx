@@ -1,7 +1,7 @@
 import React from 'react'
 
-const InputComponent = ({ text, type, id, name, value, onChange }) => (
-    <div>
+const InputComponent = ({ text, type, id, name, value, onChange, onSubmit }) => (
+    <>
         <label htmlFor={id}>{text}:</label>
         <input
             type={type}
@@ -9,8 +9,9 @@ const InputComponent = ({ text, type, id, name, value, onChange }) => (
             name={name}
             value={value}
             onChange={onChange}
+            onSubmit={onSubmit}
         />
-    </div>
+    </>
 )
 
 export default InputComponent
