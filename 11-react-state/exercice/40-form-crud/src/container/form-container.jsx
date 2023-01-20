@@ -81,6 +81,7 @@ class FormContainer extends Component {
                     {this.state.showForm ? <FormComponent userName='userName' firstName='firstName' lastName='lastName' /> : <ListComponent items={this.state.users} />}
 
                 </div>
+                <InputComponent type='button' value='Ajouter un usager' />
             </>
         )
     }
