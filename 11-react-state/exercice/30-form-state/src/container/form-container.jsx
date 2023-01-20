@@ -18,8 +18,10 @@ class FormContainer extends Component {
 
     handleChange (event) {
         this.setState({
-            formValues: { ...this.state.formValues, ...{ [event.target.name]: event.target.value } }
-
+            formValues: {
+                ...this.state.formValues,
+                [event.target.name]: event.target.value
+            }
         })
     }
 
