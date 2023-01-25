@@ -2,44 +2,7 @@ import React, { Component } from 'react'
 import FormComponent from '../component/form-component'
 import InputComponent from '../component/input-component'
 import ListComponent from '../component/list-component'
-const USERS = [
-    {
-        id: 1,
-        userName: 'patate',
-        firstName: 'Pat',
-        lastName: 'Ate'
-    },
-    {
-        id: 2,
-        userName: 'gcote',
-        firstName: 'Gros',
-        lastName: 'Coté'
-    },
-    {
-        id: 3,
-        userName: 'fmartineau',
-        firstName: 'François',
-        lastName: 'Martineau'
-    },
-    {
-        id: 4,
-        userName: 'mstpierre',
-        firstName: 'Marc',
-        lastName: 'St-Pierre'
-    },
-    {
-        id: 5,
-        userName: 'msimard',
-        firstName: 'Mélanie',
-        lastName: 'Simard'
-    },
-    {
-        id: 6,
-        userName: 'agermain',
-        firstName: 'Audrée',
-        lastName: 'Germain'
-    }
-]
+
 class FormContainer extends Component {
     constructor (props) {
         super(props)
@@ -57,7 +20,11 @@ class FormContainer extends Component {
     }
 
     componentDidMount () {
-        this.setState({ users: USERS })
+        fetch('http://localhost:8080/users', { method: 'GET' })
+            .then(response => response.json())
+            .then(response => {
+                this.setState({ users: response })
+            })
     }
 
     handleOnSubmit = e => {

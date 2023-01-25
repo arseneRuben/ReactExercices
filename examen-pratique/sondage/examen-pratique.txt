@@ -1,0 +1,58 @@
+Examen pratique - Sondage
+
+Créer une application de sondage pour les élèves.
+
+
+Application:
+    - L'exercice consiste à créer un serveur avec NodeJs et un client avec ReactJs.
+    - Le client ReactJs présente une série de 3 formulaires avec un bouton pour passé au suivant.
+    - Le client ReactJs envoie au serveur l'ensemble de l'information après le dernier formulaire.
+    - Le serveur NodeJs reçoit l'ensemble de l'information et écrit un fichier json contenant l'ensemble de l'information.
+    - Le serveur NodeJs retourne l'ensemble de l'information et le client affiche la réponse du serveur à titre de confirmation.
+
+
+Consignes générales:
+    - Travail individuel.
+    - Vous pouvez utiliser vos notes personnelles et internet.
+    - Aucune communication entre les élèves n'est permise. (chat, cell, ....)
+    - Pendant la durée de l'examen, une seule personne à la fois peut sortir du local.
+    - Pour sortir du local, vous informez le professeur et vous laissez votre téléphone bien en vue sur votre bureau.
+
+
+Consignes techniques:
+    - Un CSS est disponible dans le projet si vous utilisez la structure HTML suivante:
+        <div className='container'>
+            <h1>Sondage</h1>
+
+            <div className='sondage'>
+
+            </div>
+
+            <div className='result'>
+
+            </div>
+        </div>
+    - Vous pouvez modifier le fichier CSS fourni ou en créer un nouveau.
+    - Le serveur doit écrire dans le répertoire parent avec le chemin suivant: '../survey-result.json'
+
+
+Barème de correction sur 20
+
+Fonctionnement
+    Respect des consignes                                                   2
+    Intégration graphique (CSS et présentation)                             1
+
+    Client
+        Les 3 formulaires sont présentés à tour de rôle                     3
+        Le bouton "Suivant" devient "Soumettre" pour le 3 iem formulaire    2
+        Les données sont envoyées au serveur après le dernier formulaire    2
+        Les données sont affichées à la fin comme message de confirmation   1
+
+    Serveur
+        Reçois les données du formulaire                                    2
+        Écris les données dans un fichier JSON                              1
+        Retourne l'ensemble des données comme message de succès             1
+
+    Code
+        Structure du code                                                   2
+        Nom des variables                                                   3

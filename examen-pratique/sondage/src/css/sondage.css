@@ -1,0 +1,66 @@
+:root {
+    --color-darkest: #19381f;
+    --color-dark: #4c934c;
+    --color-medium: #53a548;
+    --color-light: #91cb3e;
+    --color-lightest: #eee82c;
+}
+
+body {
+    background-color: var(--color-darkest);
+}
+
+.container, h1, .sondage, .result {
+    border-radius: 10px;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    background-color: var(--color-lightest);
+    text-align: center;
+    color: var(--color-darkest);
+}
+
+.sondage {
+    background-color: var(--color-light);
+}
+
+.result {
+    padding: 20px;
+    background-color: var(--color-lightest);
+    color: var(--color-darkest);
+}
+
+label {
+    display: inline-block;
+    width: 200px;
+    padding: 20px;
+    margin: 20px;
+    background-color: var(--color-medium);
+    color: var(--color-darkest);
+}
+
+input, select, textarea {
+    width: 460px;
+    padding: 20px;
+}
+
+textarea {
+    margin-top: 20px;
+    vertical-align: bottom;
+}
+
+button {
+    padding: 10px;
+    margin: 20px 0 20px 360px;
+    background-color: var(--color-medium);
+    color: var(--color-darkest);
+}
+
+ul>li {
+    list-style: none;
+}
