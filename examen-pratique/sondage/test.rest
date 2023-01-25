@@ -1,0 +1,14 @@
+
+GET http://localhost:8080/ HTTP/1.1
+
+###
+
+GET http://localhost:8080/datas HTTP/1.1
+
+###
+
+
+POST http://localhost:8080/sondage HTTP/1.1
+content-type: application/json
+{ "title": "Plamondon", "uri": "https://youtu.be/uWPnd2p-WhY", "master_id":4}
+

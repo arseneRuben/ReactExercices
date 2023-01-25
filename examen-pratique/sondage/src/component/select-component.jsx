@@ -7,14 +7,12 @@ function renderOption (option, index) {
         </option>
     )
 }
-const SelectComponent = ({ label, id, options }) => (
-    <div>
-        <label htmlFor={id}>{label}</label>
+const SelectComponent = ({ inputName, id, options }) => (
 
-        <select id={id}>
-            {options.map((option, index) => renderOption(option, index))}
-        </select>
-    </div>
+    <select name={inputName} id={id}>
+        {options.map((option, index) => renderOption(option, index))}
+    </select>
+
 )
 
 export default SelectComponent

@@ -8,14 +8,15 @@ import DivInputComponent from './div-input-component'
           ...
    ]
 */
-const FormComponent = ({ fields, onSubmit }) => (
+const FormComponent = ({ fields, onSubmit, validate, formId }) => (
     <>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} id={formId} method='post'>
             <ul>
                 {fields.map((field, index) => {
-                    return <li key={index}><DivInputComponent inputType={field.inputType} inputName={field.inputName} label={field.inputName} id={index} /></li>
+                    return <li key={index}><DivInputComponent inputType={field.inputType} inputName={field.inputName} label={field.inputLabel} id={index} /></li>
                 })}
             </ul>
+            <button>{validate}</button>
 
         </form>
     </>

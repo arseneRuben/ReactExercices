@@ -1,6 +1,7 @@
 'use strict'
 
 const express = require('express')
+const dao = require('./src/server')
 
 const app = express()
 // parse application/x-www-form-urlencoded
@@ -21,12 +22,15 @@ app.use(express.json())
 const PORT = 8080
 const HTTP_OK = 200
 const CONTENT_TYPE_HTML = 'text/html'
+const CONTENT_TYPE_JSON = 'application/json'
 
-
-
-const dao = require('./src/server')
-
-//display form
+// Add track in a specifig playlist
+app.post('/sondage', function (request, response) {
+    response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_JSON })
+    response.end(JSON.stringify(request.body))
+    dao.saveDatas(JSON.stringify(request.body))
+})
+// display form
 app.get('/', function (request, response) {
     response.writeHead(HTTP_OK, { 'Content-Type': CONTENT_TYPE_HTML })
     response.end('<h1>Server page</h1>')

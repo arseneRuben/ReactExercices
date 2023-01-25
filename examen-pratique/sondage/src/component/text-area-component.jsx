@@ -9,7 +9,7 @@ const TextAreaComponent = ({
     name
 }) => (
     <div>
-        <label htmlFor={htmlFor1}>{label}:</label>
+
         <span>
             <textarea cols={cols} rows={rows} value={content} name={name} />
         </span>

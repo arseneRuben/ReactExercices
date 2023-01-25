@@ -4,33 +4,37 @@ import SelectComponent from './select-component'
 import TextAreaComponent from './text-area-component'
 
 const OPTIONS = [
-    'Insuffisant',
-    'Suffisant',
-    'Exagere'
+    { label: 'Insuffisant', value: 1 },
+    { label: 'Suffisant', value: 2 },
+    { label: 'Exagere', value: 3 }
 ]
-function renderInput ({ inputType, inputName, inputId, label }) {
-    <h1>{inputType}</h1>
+const renderInput = (inputType, inputName, inputId, value) => {
     switch (inputType) {
     case 'text':
     case 'email':
-        return <InputComponent type={inputType} name={inputName} id={inputId} />
+        return <InputComponent type={inputType} name={inputName} id={inputId} value={value} />
     case 'select':
-        return <SelectComponent label={label} id={inputId} options={OPTIONS} />
+
+        return <SelectComponent name={inputName} id={inputId} options={OPTIONS} value={value} />
     case 'textarea':
-        return <TextAreaComponent label={label} id={inputId} />
+        return <TextAreaComponent name={inputName} id={inputId} value={value} />
     default:
         return null
     }
 }
 
-const DivInputComponent = ({ inputType, inputName, label, inputId }) => (
+const DivInputComponent = ({ inputType, inputName, label, inputId, value }) => (
 
-    <div className='form-example'>
-        <label htmlFor={inputId}>{label}: </label>
-        <span>
-            {(inputType, inputName, label, inputId) => renderInput(inputType, inputName, inputId, label)}
-        </span>
-    </div>
+    <>
+
+        <div className='form-example'>
+            <label htmlFor={inputId}>{label}: </label>
+            <span>
+
+                {renderInput(inputType, inputName, inputId, value)}
+            </span>
+        </div>
+    </>
 
 )
 
